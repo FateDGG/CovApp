@@ -1,7 +1,7 @@
 import streamlit as st
 
 def bayes_theorem(prior, sensitivity, specificity):
-    false_positive_rate = 1 - specificity  # Correct interpretation
+    false_positive_rate = 1 - specificity 
     p_positive = (sensitivity * prior) + (false_positive_rate * (1 - prior))
     posterior = (sensitivity * prior) / p_positive
     return posterior
@@ -18,7 +18,7 @@ sensitivity = st.slider("Adjust Sensitivity", 0.0, 1.0, sensitivity, 0.01)
 specificity = st.number_input("Test Specificity (True Negative Rate)", 0.0, 1.0, 0.95, 0.01)
 specificity = st.slider("Adjust Specificity", 0.0, 1.0, specificity, 0.01)
 
-false_positive_rate = 1 - specificity  # Clarify dependency
+false_positive_rate = 1 - specificity
 
 if specificity == 0:
     st.error("Specificity cannot be zero.")
